@@ -1,0 +1,47 @@
+1..drop....
+  SQL DROP Statement: The SQL DROP command is used to remove an object from the database.
+ If you drop a table, all the rows in the table is deleted and the table structure is removed from the database.
+
+
+https://www.tutorialspoint.com/sql/sql-drop-table.htm
+
+
+2/
+The SQL TRUNCATE TABLE statement is used to remove all records from a table. It performs the same function as a DELETE statement without a WHERE clause.
+ Warning: If you truncate a table, the TRUNCATE TABLE statement can not be rolled back in some databases.
+
+
+
+
+https://www.tutorialspoint.com/sql/sql-truncate-table.htm
+
+
+note...
+Truncate is normally ultra-fast, ideal for cleaning out data from a temporary table. It does preserve the structure of the table for future use.
+
+If you actually want to remove the table definitions as well as the data, simply drop the tables.
+
+If you truncate the table, MySQL doesn't free the space of the hard disk. If you want your storage back, you should drop the table without truncating it
+
+
+
+
+DROP Table...........................
+DROP TABLE [table_name];
+The DROP command is used to remove a table from the database. It is a DDL command.
+ All the rows, indexes and privileges of the table will also be removed. DROP operation cannot be rolled back.
+
+DELETE Table..........................
+DELETE FROM [table_name]
+WHERE [condition];
+
+DELETE FROM [table_name];
+The DELETE command is a DML command. It can be used to delete all the rows or some rows from the table based on the condition specified in WHERE clause.
+ It is executed using a row lock, each row in the table is locked for deletion. 
+It maintain the transaction log, so it is slower than TRUNCATE. DELETE operations can be rolled back.
+
+TRUNCATE Table............................
+TRUNCATE TABLE [table_name];
+The TRUNCATE command removes all rows from a table. It won't log the deletion of each row, instead it logs the deallocation of the data pages of the table,
+ which makes it faster than DELETE.
+ It is executed using a table lock and whole table is locked for remove all records. It is a DDL command. TRUNCATE operations cannot be rolled back.
